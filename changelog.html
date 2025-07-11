@@ -79,6 +79,20 @@
     const changelogEntries = [
       {
         date: 'July 11, 2025',
+        badge: '📦',
+        version: 'v0.0.9',
+        title: 'Luminary Bot Major Update',
+        changes: [
+          '🎯 Fully Functional AutoMod System - The entire AutoMod system is now fully customizable and operational with anti-spam, link protection, profanity filters, and custom rule triggers.',
+          '🛡️ Role Management Enhancements - Smoother handling of role assignments with reaction-role systems and event-based role automation.',
+          '📜 Custom Commands Expansion - Admins can now create fully customized commands using placeholders, variable support, and permission-based control.',
+          '⏰ Scheduled Messages (New Feature!) - Schedule automatic announcements, reminders, or server updates with time zone awareness.',
+          '📚 Logging System Improvements - Comprehensive logging for message edits, member joins/leaves, role updates, and AutoMod events.',
+          '⚡ Quality of Life Enhancements - Improved command performance, reduced latency, and internal code optimizations.'
+        ]
+      },
+      {
+        date: 'July 11, 2025',
         badge: '✨',
         changes: [
           'Started Luminary\'s website and got it functional.' 
@@ -92,7 +106,9 @@
         <h3 class="text-lg font-bold text-yellow-400 mb-2 flex items-center">
           <span class="inline-block w-2 h-2 rounded-full bg-yellow-400 mr-2"></span>
           ${entry.date}
+          ${entry.version ? `<span class="ml-2 text-sm bg-blue-900 text-blue-200 px-2 py-1 rounded">${entry.version}</span>` : ''}
         </h3>
+        ${entry.title ? `<h4 class="text-xl font-semibold text-blue-300 mb-3">${entry.title}</h4>` : ''}
         <ul class="list-disc list-inside text-gray-200 ml-4">
           ${entry.changes.map(change => `<li>${change}</li>`).join('')}
         </ul>
