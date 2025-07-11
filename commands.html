@@ -46,74 +46,76 @@
   <main class="flex-1 flex flex-col items-center justify-center text-center px-4 pt-16 pb-8">
     <div class="max-w-3xl w-full mx-auto">
       <h2 class="text-4xl font-bold glow mb-6">🛠️ Commands</h2>
+      <input type="text" id="commandSearch" class="w-full p-3 rounded-lg bg-gray-800 mb-8 border border-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white" placeholder="Search all commands...">
       <div class="mb-8 flex justify-center gap-4">
         <button id="luminaryBtn" class="px-6 py-2 rounded-lg font-semibold bg-blue-600 hover:bg-blue-700 transition">Luminary</button>
         <button id="premiumBtn" class="px-6 py-2 rounded-lg font-semibold bg-purple-600 hover:bg-purple-700 transition">Luminary Premium</button>
       </div>
+      <div id="searchResults" style="display:none;"></div>
       <div id="luminaryCommands">
         <h3 class="text-2xl font-bold mb-4 text-blue-400">Luminary Slash Commands</h3>
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <li>/info</li>
-          <li>/config</li>
-          <li>/8ball</li>
-          <li>/ban</li>
-          <li>/coinflip</li>
-          <li>/commands</li>
-          <li>/custom-command-add</li>
-          <li>/custom-command-remove</li>
-          <li>/custom-command-list</li>
-          <li>/ping</li>
-          <li>/kick</li>
-          <li>/schedule-message-set</li>
-          <li>/unban</li>
-          <li>/uptime</li>
-          <li>/userinfo</li>
-        </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">info</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">config</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">8ball</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">ban</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">coinflip</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">commands</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">custom-command-add</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">custom-command-remove</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">custom-command-list</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">ping</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">kick</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">schedule-message-set</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">unban</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">uptime</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-2xl">/</span><span class="text-lg">userinfo</span></div>
+        </div>
         <h3 class="text-2xl font-bold mb-4 text-blue-400">Luminary Prefix Commands</h3>
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <li>l!ping</li>
-          <li>l!info</li>
-          <li>l!kick</li>
-          <li>l!ban</li>
-          <li>l!whois</li>
-          <li>l!userinfo</li>
-          <li>l!unban</li>
-        </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-xl">l!</span><span class="text-lg">ping</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-xl">l!</span><span class="text-lg">info</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-xl">l!</span><span class="text-lg">kick</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-xl">l!</span><span class="text-lg">ban</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-xl">l!</span><span class="text-lg">whois</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-xl">l!</span><span class="text-lg">userinfo</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-blue-400 text-xl">l!</span><span class="text-lg">unban</span></div>
+        </div>
       </div>
       <div id="premiumCommands" style="display:none;">
         <h3 class="text-2xl font-bold mb-4 text-purple-400">Luminary Premium Slash Commands</h3>
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <li>/automod</li>
-          <li>/ban</li>
-          <li>/clean</li>
-          <li>/case</li>
-          <li>/clearwarns</li>
-          <li>/fun-8ball</li>
-          <li>/fun-coinflip</li>
-          <li>/fun-emojify</li>
-          <li>/fun-fact</li>
-          <li>/fun-roll</li>
-          <li>/fun-rps</li>
-          <li>/history</li>
-          <li>/info</li>
-          <li>/meme</li>
-          <li>/kick</li>
-          <li>/ping</li>
-          <li>/reaction-roles</li>
-          <li>/setup-welcome</li>
-          <li>/timeout</li>
-          <li>/trivia</li>
-          <li>/userinfo</li>
-          <li>/warn</li>
-          <li>/warnings</li>
-        </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">automod</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">ban</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">clean</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">case</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">clearwarns</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">fun-8ball</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">fun-coinflip</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">fun-emojify</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">fun-fact</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">fun-roll</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">fun-rps</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">history</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">info</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">meme</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">kick</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">ping</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">reaction-roles</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">setup-welcome</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">timeout</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">trivia</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">userinfo</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">warn</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-2xl">/</span><span class="text-lg">warnings</span></div>
+        </div>
         <h3 class="text-2xl font-bold mb-4 text-purple-400">Luminary Premium Prefix Commands</h3>
-        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <li>lp!ping</li>
-          <li>lp!info</li>
-          <li>lp!whois</li>
-          <li>lp!userinfo</li>
-        </ul>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-xl">lp!</span><span class="text-lg">ping</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-xl">lp!</span><span class="text-lg">info</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-xl">lp!</span><span class="text-lg">whois</span></div>
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card"><span class="text-purple-400 text-xl">lp!</span><span class="text-lg">userinfo</span></div>
+        </div>
       </div>
     </div>
   </main>
@@ -139,9 +141,100 @@
     const premiumBtn = document.getElementById('premiumBtn');
     const luminaryCommands = document.getElementById('luminaryCommands');
     const premiumCommands = document.getElementById('premiumCommands');
+    const searchInput = document.getElementById('commandSearch');
+    const searchResults = document.getElementById('searchResults');
+
+    // Command data for search
+    const allCommands = [
+      // Luminary Slash
+      { name: '/info', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/config', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/8ball', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/ban', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/coinflip', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/commands', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/custom-command-add', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/custom-command-remove', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/custom-command-list', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/ping', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/kick', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/schedule-message-set', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/unban', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/uptime', type: 'slash', bot: 'Luminary', color: 'blue' },
+      { name: '/userinfo', type: 'slash', bot: 'Luminary', color: 'blue' },
+      // Luminary Prefix
+      { name: 'l!ping', type: 'prefix', bot: 'Luminary', color: 'blue' },
+      { name: 'l!info', type: 'prefix', bot: 'Luminary', color: 'blue' },
+      { name: 'l!kick', type: 'prefix', bot: 'Luminary', color: 'blue' },
+      { name: 'l!ban', type: 'prefix', bot: 'Luminary', color: 'blue' },
+      { name: 'l!whois', type: 'prefix', bot: 'Luminary', color: 'blue' },
+      { name: 'l!userinfo', type: 'prefix', bot: 'Luminary', color: 'blue' },
+      { name: 'l!unban', type: 'prefix', bot: 'Luminary', color: 'blue' },
+      // Premium Slash
+      { name: '/automod', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/ban', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/clean', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/case', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/clearwarns', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/fun-8ball', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/fun-coinflip', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/fun-emojify', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/fun-fact', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/fun-roll', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/fun-rps', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/history', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/info', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/meme', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/kick', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/ping', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/reaction-roles', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/setup-welcome', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/timeout', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/trivia', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/userinfo', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/warn', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      { name: '/warnings', type: 'slash', bot: 'Luminary Premium', color: 'purple' },
+      // Premium Prefix
+      { name: 'lp!ping', type: 'prefix', bot: 'Luminary Premium', color: 'purple' },
+      { name: 'lp!info', type: 'prefix', bot: 'Luminary Premium', color: 'purple' },
+      { name: 'lp!whois', type: 'prefix', bot: 'Luminary Premium', color: 'purple' },
+      { name: 'lp!userinfo', type: 'prefix', bot: 'Luminary Premium', color: 'purple' }
+    ];
+
+    function renderSearchResults(results) {
+      if (results.length === 0) {
+        searchResults.innerHTML = '<div class="text-gray-400">No commands found.</div>';
+        return;
+      }
+      searchResults.innerHTML = `<div class='mb-4 text-lg font-bold text-blue-300'>Search Results</div><div class='grid grid-cols-1 md:grid-cols-2 gap-4'>` +
+        results.map(cmd => `
+          <div class="bg-[#232946] rounded-xl p-4 flex items-center space-x-4 shadow neon-border command-card">
+            <span class="${cmd.color === 'blue' ? 'text-blue-400' : 'text-purple-400'} text-2xl">${cmd.type === 'slash' ? '/' : (cmd.name.startsWith('l!') ? 'l!' : 'lp!')}</span>
+            <span class="text-lg">${cmd.name.replace(/^\/(l!|lp!)?/, '')}</span>
+            <span class="ml-auto text-xs px-2 py-1 rounded ${cmd.color === 'blue' ? 'bg-blue-900 text-blue-200' : 'bg-purple-900 text-purple-200'}">${cmd.bot}</span>
+          </div>
+        `).join('') + '</div>';
+    }
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().toLowerCase();
+      if (query === '') {
+        searchResults.style.display = 'none';
+        luminaryCommands.style.display = '';
+        premiumCommands.style.display = premiumBtn.classList.contains('bg-purple-700') ? '' : 'none';
+        return;
+      }
+      const filtered = allCommands.filter(cmd => cmd.name.toLowerCase().includes(query));
+      renderSearchResults(filtered);
+      searchResults.style.display = '';
+      luminaryCommands.style.display = 'none';
+      premiumCommands.style.display = 'none';
+    });
+
     luminaryBtn.addEventListener('click', () => {
       luminaryCommands.style.display = '';
       premiumCommands.style.display = 'none';
+      searchResults.style.display = 'none';
       luminaryBtn.classList.add('bg-blue-700');
       luminaryBtn.classList.remove('bg-blue-600');
       premiumBtn.classList.remove('bg-purple-700');
@@ -150,6 +243,7 @@
     premiumBtn.addEventListener('click', () => {
       luminaryCommands.style.display = 'none';
       premiumCommands.style.display = '';
+      searchResults.style.display = 'none';
       premiumBtn.classList.add('bg-purple-700');
       premiumBtn.classList.remove('bg-purple-600');
       luminaryBtn.classList.remove('bg-blue-700');
