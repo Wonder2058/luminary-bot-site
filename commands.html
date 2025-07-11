@@ -45,29 +45,75 @@
   <!-- Commands Section -->
   <main class="flex-1 flex flex-col items-center justify-center text-center px-4 pt-16 pb-8">
     <div class="max-w-3xl w-full mx-auto">
-      <h2 class="text-4xl font-bold glow mb-6">📜 Commands</h2>
-      <input type="text" id="search" class="w-full p-3 rounded-lg bg-gray-800 mb-8 border border-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search commands...">
-      <div id="commands-list" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-[#181f3a] rounded-xl p-6 shadow-lg border border-blue-900 flex items-center space-x-4 command-item">
-          <span class="text-blue-400 text-2xl"><svg class="w-7 h-7 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 9a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v6m0 0l3-3m-3 3l-3-3"/></svg></span>
-          <div class="text-left"><strong>lp!ban</strong><br><span class="text-gray-300">Ban a user</span></div>
-        </div>
-        <div class="bg-[#181f3a] rounded-xl p-6 shadow-lg border border-blue-900 flex items-center space-x-4 command-item">
-          <span class="text-purple-400 text-2xl"><svg class="w-7 h-7 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-3-3v6"/></svg></span>
-          <div class="text-left"><strong>lp!mute</strong><br><span class="text-gray-300">Mute a user</span></div>
-        </div>
-        <div class="bg-[#181f3a] rounded-xl p-6 shadow-lg border border-blue-900 flex items-center space-x-4 command-item">
-          <span class="text-yellow-400 text-2xl"><svg class="w-7 h-7 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01"/></svg></span>
-          <div class="text-left"><strong>lp!warn</strong><br><span class="text-gray-300">Warn a user</span></div>
-        </div>
-        <div class="bg-[#181f3a] rounded-xl p-6 shadow-lg border border-blue-900 flex items-center space-x-4 command-item">
-          <span class="text-green-400 text-2xl"><svg class="w-7 h-7 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3"/></svg></span>
-          <div class="text-left"><strong>lp!giveaway</strong><br><span class="text-gray-300">Start a giveaway</span></div>
-        </div>
-        <div class="bg-[#181f3a] rounded-xl p-6 shadow-lg border border-blue-900 flex items-center space-x-4 command-item">
-          <span class="text-pink-400 text-2xl"><svg class="w-7 h-7 inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 10.5V6a2 2 0 00-2-2H9a2 2 0 00-2 2v4.5"/><path stroke-linecap="round" stroke-linejoin="round" d="M7 10.5V18a2 2 0 002 2h6a2 2 0 002-2v-7.5"/></svg></span>
-          <div class="text-left"><strong>lp!poll</strong><br><span class="text-gray-300">Create a poll</span></div>
-        </div>
+      <h2 class="text-4xl font-bold glow mb-6">🛠️ Commands</h2>
+      <div class="mb-8 flex justify-center gap-4">
+        <button id="luminaryBtn" class="px-6 py-2 rounded-lg font-semibold bg-blue-600 hover:bg-blue-700 transition">Luminary</button>
+        <button id="premiumBtn" class="px-6 py-2 rounded-lg font-semibold bg-purple-600 hover:bg-purple-700 transition">Luminary Premium</button>
+      </div>
+      <div id="luminaryCommands">
+        <h3 class="text-2xl font-bold mb-4 text-blue-400">Luminary Slash Commands</h3>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <li>/info</li>
+          <li>/config</li>
+          <li>/8ball</li>
+          <li>/ban</li>
+          <li>/coinflip</li>
+          <li>/commands</li>
+          <li>/custom-command-add</li>
+          <li>/custom-command-remove</li>
+          <li>/custom-command-list</li>
+          <li>/ping</li>
+          <li>/kick</li>
+          <li>/schedule-message-set</li>
+          <li>/unban</li>
+          <li>/uptime</li>
+          <li>/userinfo</li>
+        </ul>
+        <h3 class="text-2xl font-bold mb-4 text-blue-400">Luminary Prefix Commands</h3>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <li>l!ping</li>
+          <li>l!info</li>
+          <li>l!kick</li>
+          <li>l!ban</li>
+          <li>l!whois</li>
+          <li>l!userinfo</li>
+          <li>l!unban</li>
+        </ul>
+      </div>
+      <div id="premiumCommands" style="display:none;">
+        <h3 class="text-2xl font-bold mb-4 text-purple-400">Luminary Premium Slash Commands</h3>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <li>/automod</li>
+          <li>/ban</li>
+          <li>/clean</li>
+          <li>/case</li>
+          <li>/clearwarns</li>
+          <li>/fun-8ball</li>
+          <li>/fun-coinflip</li>
+          <li>/fun-emojify</li>
+          <li>/fun-fact</li>
+          <li>/fun-roll</li>
+          <li>/fun-rps</li>
+          <li>/history</li>
+          <li>/info</li>
+          <li>/meme</li>
+          <li>/kick</li>
+          <li>/ping</li>
+          <li>/reaction-roles</li>
+          <li>/setup-welcome</li>
+          <li>/timeout</li>
+          <li>/trivia</li>
+          <li>/userinfo</li>
+          <li>/warn</li>
+          <li>/warnings</li>
+        </ul>
+        <h3 class="text-2xl font-bold mb-4 text-purple-400">Luminary Premium Prefix Commands</h3>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <li>lp!ping</li>
+          <li>lp!info</li>
+          <li>lp!whois</li>
+          <li>lp!userinfo</li>
+        </ul>
       </div>
     </div>
   </main>
@@ -89,14 +135,25 @@
     menuButton.addEventListener("click", () => {
       mobileMenu.classList.toggle("hidden");
     });
-    // Command search functionality
-    const input = document.getElementById('search');
-    const items = document.querySelectorAll('.command-item');
-    input.addEventListener('input', () => {
-      const filter = input.value.toLowerCase();
-      items.forEach(item => {
-        item.style.display = item.textContent.toLowerCase().includes(filter) ? '' : 'none';
-      });
+    const luminaryBtn = document.getElementById('luminaryBtn');
+    const premiumBtn = document.getElementById('premiumBtn');
+    const luminaryCommands = document.getElementById('luminaryCommands');
+    const premiumCommands = document.getElementById('premiumCommands');
+    luminaryBtn.addEventListener('click', () => {
+      luminaryCommands.style.display = '';
+      premiumCommands.style.display = 'none';
+      luminaryBtn.classList.add('bg-blue-700');
+      luminaryBtn.classList.remove('bg-blue-600');
+      premiumBtn.classList.remove('bg-purple-700');
+      premiumBtn.classList.add('bg-purple-600');
+    });
+    premiumBtn.addEventListener('click', () => {
+      luminaryCommands.style.display = 'none';
+      premiumCommands.style.display = '';
+      premiumBtn.classList.add('bg-purple-700');
+      premiumBtn.classList.remove('bg-purple-600');
+      luminaryBtn.classList.remove('bg-blue-700');
+      luminaryBtn.classList.add('bg-blue-600');
     });
   </script>
 </body>
