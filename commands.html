@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Commands</title><script src="https://cdn.tailwindcss.com"></script></head>
+<body class="bg-[#0f0f0f] text-white font-sans">
+  <div class="max-w-4xl mx-auto py-16 px-4">
+    <h1 class="text-3xl font-bold text-cyan-400 mb-4">📜 Commands</h1>
+    <input type="text" id="search" class="w-full p-2 rounded bg-gray-800 mb-6" placeholder="Search commands...">
+    <ul id="commands-list" class="space-y-2">
+      <li><strong>lp!ban</strong>: Ban a user</li>
+      <li><strong>lp!mute</strong>: Mute a user</li>
+      <li><strong>lp!warn</strong>: Warn a user</li>
+      <li><strong>lp!giveaway</strong>: Start a giveaway</li>
+      <li><strong>lp!poll</strong>: Create a poll</li>
+    </ul>
+  </div>
+  <script>
+    const input = document.getElementById('search');
+    const list = document.getElementById('commands-list');
+    const items = list.querySelectorAll('li');
+
+    input.addEventListener('input', () => {
+      const filter = input.value.toLowerCase();
+      items.forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(filter) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
