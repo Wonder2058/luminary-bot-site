@@ -14,7 +14,7 @@
 </head>
 <body class="bg-gradient-to-br from-[#0f0f0f] via-[#1a1a2e] to-[#232946] text-white min-h-screen flex flex-col">
   <!-- Sticky Navbar -->
-  <header class="sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-gradient-to-r from-purple-800 to-blue-600 shadow-xl">
+  <header class="sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-gradient-to-r from-purple-800 to-blue-600 shadow-xl relative">
     <h1 class="text-3xl font-bold glow">Luminary</h1>
     <div id="menu-button" class="block md:hidden cursor-pointer">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-8 h-8">
@@ -71,10 +71,23 @@
     &copy; 2025 Luminary. All rights reserved.
   </footer>
   <script>
-    const menuButton = document.getElementById("menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-    menuButton.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuButton = document.getElementById("menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      
+      if (menuButton && mobileMenu) {
+        menuButton.addEventListener("click", function() {
+          mobileMenu.classList.toggle("hidden");
+          console.log("Menu toggled"); // Debug log
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener("click", function(event) {
+          if (!menuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+            mobileMenu.classList.add("hidden");
+          }
+        });
+      }
     });
 
     // === Easily editable status section ===
